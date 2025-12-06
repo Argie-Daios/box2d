@@ -1,7 +1,7 @@
 project "Box2D"
 	kind "StaticLib"
-	language "C++"
-	cppdialect "C++11"
+	language "C"
+	cdialect "C17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -11,6 +11,7 @@ project "Box2D"
 	{
 		"src/**.h",
 		"src/**.cpp",
+		"src/**.c",
 		"include/**.h"
 	}
 
@@ -31,6 +32,6 @@ project "Box2D"
 		runtime "Release"
 		optimize "on"
 
-	filter "configurations:Dist"
-		runtime "Release"
-		optimize "on"
+	filter {}
+        kind "StaticLib"
+        targetextension ".lib"
